@@ -6,8 +6,8 @@
     "node": ">=12.14.0"
   }, 
   "scripts": {
-    "start": "SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
-    "build": "SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts build", 
+    "start": "EXPORT SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
+    "build": "EXPORT SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts build", 
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
