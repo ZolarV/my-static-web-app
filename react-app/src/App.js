@@ -63,32 +63,46 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <HeaderBar />
-        <div className="section columns">
-          <NavBar />
-          <main className="column">
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt ="logo" />
             {
               this.state.isAuthenticated ? <p>
-                <Suspense fallback={<div>Loading...</div>}>
-               <Switch>
-                 <Redirect from="/" exact to="/products" />
-                 <Route path="/products" component={Products} />
-                 <Route path="/about" component={About} />
-                 <Route exact path="**" component={NotFound} />
-               </Switch>
-             </Suspense>
+               
               </p>:
                <p>
-                <button onClick={()=>this.login}>Log in</button>
+                <button onClick={()=>this.login}>Login</button>
                </p>
             }
-           
-          </main>
+
+          </header>
+
+
         </div>
-      </div>
+          
+           
+           
+          
     );
   }
 }
 
 export default App;
+
+{/* 
+<div>
+        <HeaderBar />
+        <div className="section columns">
+          <NavBar />
+</main>
+        </div>
+      </div>
+
+<Suspense fallback={<div>Loading...</div>}>
+<Switch>
+  <Redirect from="/" exact to="/products" />
+  <Route path="/products" component={Products} />
+  <Route path="/about" component={About} />
+  <Route exact path="**" component={NotFound} />
+</Switch>
+</Suspense> */}
