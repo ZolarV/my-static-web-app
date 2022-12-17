@@ -2,5 +2,16 @@
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": ["*.{css,scss,js,png,gif,ico,jpg,svg}"]
+  },
+  "auth": {
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/b969b9bd-071f-4e68-b857-b0fa945c8e9a/v2.0",
+          "clientIdSettingName": "28c6759d-ec6a-482b-b45d-bf771eee1820",
+          "clientSecretSettingName": "f4c0aded-d2eb-4cdf-b1d7-b6df63e084db"
+        }
+      }
+    }
   }
 }
