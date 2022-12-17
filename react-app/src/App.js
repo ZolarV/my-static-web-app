@@ -65,10 +65,17 @@ class App extends Component {
     return (
         <div className="App">
           <header className="App-header">
-            <img src={logo} className="App-logo" alt ="logo" />
+            
             {
               this.state.isAuthenticated ? <p>
-               
+               <Suspense fallback={<div>Loading...</div>}>
+                <Switch>
+                <Redirect from="/" exact to="/products" />
+                <Route path="/products" component={Products} />
+                <Route path="/about" component={About} />
+                <Route exact path="**" component={NotFound} />
+                </Switch>
+              </Suspense>
               </p>:
                <p>
                 <button onClick={()=>this.login}>Login</button>
@@ -98,11 +105,4 @@ export default App;
         </div>
       </div>
 
-<Suspense fallback={<div>Loading...</div>}>
-<Switch>
-  <Redirect from="/" exact to="/products" />
-  <Route path="/products" component={Products} />
-  <Route path="/about" component={About} />
-  <Route exact path="**" component={NotFound} />
-</Switch>
-</Suspense> */}
+ */}
