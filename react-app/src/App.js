@@ -3,7 +3,8 @@ import 'bulma/css/bulma.css';
 import './styles.scss';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import { HeaderBar, NavBar, NotFound } from './components';
+//import { HeaderBar, NavBar, NotFound } from './components';
+import { NotFound } from './components';
 import { config } from './Config';
 import  {PublicClientApplication } from '@azure/msal-browser'
 import About from './About';
