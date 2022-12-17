@@ -79,7 +79,7 @@ class App extends Component {
               </Suspense>
               </p>:
                <p>
-                <button onClick={()=>this.login}>Login</button>
+                <button onClick={()=>this.login()}>Login</button>
                </p>
             }
 
