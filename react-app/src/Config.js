@@ -5,6 +5,6 @@ export const config = {
         'user.read'
 
     ],
-    authortiy: 'https://login.microsoftonline.com/c2consultants.net'
+    authortiy: 'https://login.microsoftonline.com/c2consultants.onmicrosoft.com'
 
 }
