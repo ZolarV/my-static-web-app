@@ -29,7 +29,7 @@ class App extends Component {
         authority: config.authortiy
       },
       cache:{
-        cacheLocation: "sessionStorage",
+        cacheLocation: 'sessionStorage',
         storeAuthStateInCookie: true
       }
     });
@@ -40,7 +40,7 @@ class App extends Component {
       await this.PublicClientApplication.loginPopup(
         {
           scopes:config.scopes,
-          prompt: "select_account"
+          prompt: 'select_account'
         }
       );
     this.setState({isAuthenticated:true})
@@ -55,7 +55,7 @@ class App extends Component {
   }
   
   logout(){
-    this.PublicClientApplication.logout();
+    this.PublicClientApplication.logoutPopup();
   }
   
 
