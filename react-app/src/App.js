@@ -14,7 +14,7 @@ const Products = withRouter(
 );
 
 class App extends Component {
-
+  
   constructor(props){
     super(props);
     this.state = {
@@ -37,7 +37,18 @@ class App extends Component {
   }
 
   async login(){
-    try{
+    accounts = await this.PublicClientApplication.GetAccountsAsync();
+    account = ChooseAccount(accounts.FirstOrDefault)
+    try
+    {
+        result = await this.PublicClientApplication.AcquireTokenSilent(scopes, account).ExecuteAsync();
+    }
+    catch(err)
+    {
+    result = await this.PublicClientApplication.AcquireTokenXX(scopes, account).WithOptionalParameterXXX(parameter).ExecuteAsync();
+    } 
+
+  /*   try{
       await this.PublicClientApplication.loginPopup(
         {
           scopes:config.scopes,
@@ -52,7 +63,7 @@ class App extends Component {
         user:{},
         error:err
       });
-    }
+    } */
   }
   
   logout(){
