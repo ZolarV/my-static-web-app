@@ -3,8 +3,7 @@ export const config = {
     redirectUri: 'https://orange-sea-06bd4430f.2.azurestaticapps.net',
     scopes: [
         'user.read'
-
     ],
-    authortiy: 'https://login.microsoftonline.com/c2consultants.onmicrosoft.com'
+    authortiy: 'https://login.microsoftonline.com/c2consultants.net'
 
 }
