@@ -1,13 +1,14 @@
-import React, { Component,  Suspense } from 'react';
+import React, { Component} from 'react';
 import 'bulma/css/bulma.css';
 import './styles.scss';
-import { Redirect, Route, Switch } from 'react-router-dom';
+
 
 //import { HeaderBar, NavBar, NotFound } from './components';
-import  { NotFound } from './components';
+
 import  { config } from './Config';
 import  {PublicClientApplication } from '@azure/msal-browser'
-import About from './About';
+import  {  TableServiceClient, AzureNamedKeyCredential} from "@azure/data-tables";
+
 
 
 
@@ -58,6 +59,23 @@ class App extends Component {
     this.PublicClientApplication.logoutPopup();
   }
   
+  async getLatest(){
+
+    var uri = 'https://teststoragec2consultants.table.core.windows.net/?sv=2021-06-08&ss=t&srt=sco&sp=rl&se=2023-01-10T06:08:43Z&st=2022-12-18T22:08:43Z&spr=https&sig=wFUjZHLzqG11pxrmp95uf9Niyd49FhuwHGk3ncc1Vcs%3D'
+    const account = "teststoragec2consultants";
+    const sas = "?sv=2021-06-08&ss=t&srt=sco&sp=rl&se=2023-01-10T06:08:43Z&st=2022-12-18T22:08:43Z&spr=https&sig=wFUjZHLzqG11pxrmp95uf9Niyd49FhuwHGk3ncc1Vcs%3D";
+
+    const serviceClientWithSAS = new TableServiceClient(
+      `https://${account}.table.core.windows.net`,
+    new AzureSASCredential(sas)
+    );
+    let tablesIter = serviceClient.listTables();
+    let i = 1;
+    for await (const table of tablesIter) {
+    console.log(`Table${i}: ${table.name}`);
+    i++;
+  }
+}
 
 
 
@@ -67,15 +85,22 @@ class App extends Component {
           <div className="App-header">         
             {
               this.state.isAuthenticated ? 
-              <p>               
-              <Suspense fallback={<div>Loading...</div>}>
-                <Switch>
-                <Redirect from="/" exact to="/status" />
-                {/* <Route path="/status" component={status} /> */}
-                <Route path="/about" component={About} />
-                <Route exact path="**" component={NotFound} />
-                </Switch>
-              </Suspense>
+              <p> 
+                {this.getLatest()}              
+                <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
+                  <table>
+                    <thead>
+                        <tr>
+                            <th>Server</th>
+                            <th>IP Address</th>
+                            <th>State</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                  </table>
+
+
+                </div>
               </p>: 
               <p>
                 <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
