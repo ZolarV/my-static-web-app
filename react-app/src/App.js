@@ -1,7 +1,7 @@
 import React, { Component, lazy, Suspense } from 'react';
 import 'bulma/css/bulma.css';
 import './styles.scss';
-import { Redirect, Route, Switch } from 'react-router-dom';
+//import { Redirect, Route, Switch } from 'react-router-dom';
 
 //import { HeaderBar, NavBar, NotFound } from './components';
 import  { NotFound } from './components';
@@ -9,9 +9,7 @@ import  { config } from './Config';
 import  {PublicClientApplication } from '@azure/msal-browser'
 import About from './About';
 
-const Products = withRouter(
-  lazy(() => import(/* webpackChunkName: "products" */ './products/Products'))
-);
+
 
 class App extends Component {
   
