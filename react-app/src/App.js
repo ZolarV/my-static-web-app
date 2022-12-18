@@ -61,13 +61,8 @@ class App extends Component {
 
   render() {
     return (
-
-  
-
-
-
-      <div className="parent">
-          <div className="form_login">         
+      <div className="App">
+          <div className="App-header">         
             {
               this.state.isAuthenticated ? 
               <p>               
@@ -81,8 +76,8 @@ class App extends Component {
               </Suspense>
               </p>: 
               <p>
-                 <div className="parent">
-                  <div className="form_login">
+                 <div className="App-parent">
+                  <div className="App-form_login">
                     <button onClick={() => this.login()}>Login</button>
                   </div>
                 </div> 
