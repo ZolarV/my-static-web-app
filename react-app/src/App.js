@@ -53,10 +53,10 @@ class App extends Component {
     var serviceClientWithSAS = new TableServiceClient('https://teststoragec2consultants.table.core.windows.net',new AzureSASCredential(sas));
    
     let tablesIter = serviceClientWithSAS.listTables();
-    let i = 1;
+    
     for await (const table of tablesIter) {
-    console.log(`Table${i}: ${table.name}`);
-    i++;
+    {table.name}
+    
     }
 }
 
