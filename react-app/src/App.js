@@ -66,19 +66,19 @@ class App extends Component {
 
 
 
-      <div className="App">
-          <header className="App-header">         
+      <div className="parent">
+          <header className="form_login">         
             {
               this.state.isAuthenticated ? <p>               
                 <Redirect from="/" exact to="/status" />
               </p>:
-                <div id="parent">
-                  <form id="form_login">
+               
+                 
                     <p>
                     <button onClick={() => this.login()}>Login</button>
                     </p>
-                  </form>
-                </div>
+                
+                
             }
           </header>
         </div>    
