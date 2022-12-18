@@ -80,7 +80,7 @@ class App extends Component {
               <p>
                 <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
                   
-                  login()
+                  {login()}
                 </div>
                 
                     
