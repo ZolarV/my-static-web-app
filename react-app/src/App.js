@@ -3,7 +3,7 @@ import 'bulma/css/bulma.css';
 import './styles.scss';
 import  { config } from './Config';
 import  {PublicClientApplication } from '@azure/msal-browser'
-import  {  TableServiceClient, AzureNamedKeyCredential} from "@azure/data-tables";
+import  {  TableServiceClient, AzureSASCredential} from "@azure/data-tables";
 
 
 
@@ -57,9 +57,8 @@ class App extends Component {
   
   async getLatest(){
 
-    var uri = 'https://teststoragec2consultants.table.core.windows.net/?sv=2021-06-08&ss=t&srt=sco&sp=rl&se=2023-01-10T06:08:43Z&st=2022-12-18T22:08:43Z&spr=https&sig=wFUjZHLzqG11pxrmp95uf9Niyd49FhuwHGk3ncc1Vcs%3D'
-    const account = "teststoragec2consultants";
-    const sas = "?sv=2021-06-08&ss=t&srt=sco&sp=rl&se=2023-01-10T06:08:43Z&st=2022-12-18T22:08:43Z&spr=https&sig=wFUjZHLzqG11pxrmp95uf9Niyd49FhuwHGk3ncc1Vcs%3D";
+    const account = 'teststoragec2consultants';
+    const sas = '?sv=2021-06-08&ss=t&srt=sco&sp=rl&se=2023-01-10T06:08:43Z&st=2022-12-18T22:08:43Z&spr=https&sig=wFUjZHLzqG11pxrmp95uf9Niyd49FhuwHGk3ncc1Vcs%3D';
 
     const serviceClientWithSAS = new TableServiceClient(
       `https://${account}.table.core.windows.net`,
