@@ -1,10 +1,6 @@
 import React, { Component} from 'react';
 import 'bulma/css/bulma.css';
 import './styles.scss';
-
-
-//import { HeaderBar, NavBar, NotFound } from './components';
-
 import  { config } from './Config';
 import  {PublicClientApplication } from '@azure/msal-browser'
 import  {  TableServiceClient, AzureNamedKeyCredential} from "@azure/data-tables";
@@ -69,7 +65,7 @@ class App extends Component {
       `https://${account}.table.core.windows.net`,
     new AzureSASCredential(sas)
     );
-    let tablesIter = serviceClient.listTables();
+    let tablesIter = serviceClientWithSAS.listTables();
     let i = 1;
     for await (const table of tablesIter) {
     console.log(`Table${i}: ${table.name}`);
@@ -117,16 +113,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;
-
-{/* 
-<div>
-        <HeaderBar />
-        <div className="section columns">
-          <NavBar />
-</main>
-        </div>
-      </div>
-
- */}
