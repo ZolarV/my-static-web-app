@@ -32,11 +32,10 @@ class App extends Component {
   }
 
   async login(){
-    
    try{
       await this.PublicClientApplication.loginPopup(
         {
-          scopes:config.scopes,
+          scopes:  config.scopes,
           prompt: 'select_account'
         }
       );
@@ -54,13 +53,13 @@ class App extends Component {
   logout(){
     this.PublicClientApplication.logoutPopup();
   }
-  
+ 
+
   async getLatest(){
-
-    account = 'teststoragec2consultants';
-    sas = '?sv=2021-06-08&ss=t&srt=sco&sp=rl&se=2023-01-10T06:08:43Z&st=2022-12-18T22:08:43Z&spr=https&sig=wFUjZHLzqG11pxrmp95uf9Niyd49FhuwHGk3ncc1Vcs%3D';
-
-    serviceClientWithSAS = new TableServiceClient(`https://${account}.table.core.windows.net`,new AzureSASCredential(sas));
+    var account = 'teststoragec2consultants';
+    var sas = '?sv=2021-06-08&ss=t&srt=sco&sp=rl&se=2023-01-10T06:08:43Z&st=2022-12-18T22:08:43Z&spr=https&sig=wFUjZHLzqG11pxrmp95uf9Niyd49FhuwHGk3ncc1Vcs%3D';
+    var serviceClientWithSAS = new TableServiceClient(`https://${account}.table.core.windows.net`,new AzureSASCredential(sas));
+   
     let tablesIter = serviceClientWithSAS.listTables();
     let i = 1;
     for await (const table of tablesIter) {
