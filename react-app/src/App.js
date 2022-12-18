@@ -78,11 +78,13 @@ class App extends Component {
               </Suspense>
               </p>: 
               <p>
-                 <div className="App-parent">
-                  <div className="App-form_login">
-                    <button onClick={() => this.login()}>Login</button>
-                  </div>
-                </div> 
+                <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
+                  <h1> I am centered </h1>
+                  <button onClick={() => this.login()}>Login</button>
+                </div>
+                
+                    
+                 
               </p>  
             }
           </div>
