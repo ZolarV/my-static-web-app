@@ -2,16 +2,12 @@ import React, { Component, lazy, Suspense } from 'react';
 import 'bulma/css/bulma.css';
 import './styles.scss';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { withRouter } from 'react-router';
+
 //import { HeaderBar, NavBar, NotFound } from './components';
-import { NotFound } from './components';
-import { config } from './Config';
+import  { NotFound } from './components';
+import  { config } from './Config';
 import  {PublicClientApplication } from '@azure/msal-browser'
 import About from './About';
-
-const Products = withRouter(
-  lazy(() => import(/* webpackChunkName: "products" */ './products/Products'))
-);
 
 class App extends Component {
   
@@ -37,18 +33,8 @@ class App extends Component {
   }
 
   async login(){
-    accounts = await this.PublicClientApplication.GetAccountsAsync();
-    account = ChooseAccount(accounts.FirstOrDefault)
-    try
-    {
-        result = await this.PublicClientApplication.AcquireTokenSilent(scopes, account).ExecuteAsync();
-    }
-    catch(err)
-    {
-    result = await this.PublicClientApplication.AcquireTokenXX(scopes, account).WithOptionalParameterXXX(parameter).ExecuteAsync();
-    } 
-
-  /*   try{
+    
+   try{
       await this.PublicClientApplication.loginPopup(
         {
           scopes:config.scopes,
@@ -63,7 +49,7 @@ class App extends Component {
         user:{},
         error:err
       });
-    } */
+    } 
   }
   
   logout(){
@@ -75,29 +61,75 @@ class App extends Component {
 
   render() {
     return (
-        <div className="App">
-          <header className="App-header">
-            
-            {
-              this.state.isAuthenticated ? <p>
-               <Suspense fallback={<div>Loading...</div>}>
-                <Switch>
-                <Redirect from="/" exact to="/products" />
-                <Route path="/products" component={Products} />
-                <Route path="/about" component={About} />
-                <Route exact path="**" component={NotFound} />
-                </Switch>
-              </Suspense>
-              </p>:
-               <p>
-                <button onClick={()=>this.login()}>Login</button>
-               </p>
-            }
-
-          </header>
-
-
+      <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Status Page</h1>
         </div>
+      </div>
+      <div class="row clearfix">
+          <div class="col-md-12 column">
+              <div class="panel panel-warning">
+                <div class="panel-heading">
+                  <h3 class="panel-title">
+                    Not All Systems Operational
+                    <small class="pull-right">Refreshed 39 minutes ago</small>
+                  </h3>
+                </div>                
+              </div>
+            
+
+              <div class="row clearfix">
+                  <div class="col-md-12 column">
+                      <div class="list-group">
+                        
+                          <div class="list-group-item">
+                              <h4 class="list-group-item-heading">
+                                  Website and API 
+                                  <a href="#"  data-toggle="tooltip" data-placement="bottom" title="Access website and use site API">
+                                    <i class="fa fa-question-circle"></i>
+                                  </a>
+                              </h4>
+                              <p class="list-group-item-text">
+                                  <span class="label label-danger">Not Operational</span>
+                              </p>
+                          </div>
+                        
+                          <div class="list-group-item">
+                              <h4 class="list-group-item-heading">
+                                  SSH 
+                                  <a href="#"  data-toggle="tooltip" data-placement="bottom" title="Access site using SSH terminal">
+                                    <i class="fa fa-question-circle"></i>
+                                  </a>
+                              </h4>
+                              <p class="list-group-item-text">
+                                  <span class="label label-success">Operational</span>
+                              </p>
+                          </div>
+                        
+                          <div class="list-group-item">
+                              <h4 class="list-group-item-heading">
+                                  Database Server 
+                                  <a href="#"  data-toggle="tooltip" data-placement="bottom" title="Access database server and execute queries">
+                                    <i class="fa fa-question-circle"></i>
+                                  </a>
+                              </h4>
+                              <p class="list-group-item-text">
+                                  <span class="label label-success">Operational</span>
+                              </p>
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+
+      
           
            
            
