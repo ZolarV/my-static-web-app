@@ -55,8 +55,8 @@ class App extends Component {
     let tablesIter = serviceClientWithSAS.listTables();
     
     for await (const table of tablesIter) {
-    {table.name}
-    
+      console.log(`Table${i}: ${table.name}`);
+      i++;
     }
 }
 
@@ -64,8 +64,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-          <div className="App-header">         
+      <div className='App'>
+          <div className='App-header'>         
             {
               this.state.isAuthenticated ? 
               <p> 
