@@ -79,8 +79,7 @@ class App extends Component {
               </p>: 
               <p>
                 <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
-                  <h1> I am centered </h1>
-                  <button onClick={() => this.login()}>Login</button>
+                  this.login()
                 </div>
                 
                     
