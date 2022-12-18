@@ -66,8 +66,8 @@ class App extends Component {
 
 
 
-      <div className="parent">
-          <header className="form_login">         
+      <div className="App">
+          <header className="App-header">         
             {
               this.state.isAuthenticated ? 
               <p>               
