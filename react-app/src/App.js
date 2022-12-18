@@ -2,7 +2,7 @@ import React, { Component, lazy, Suspense } from 'react';
 import 'bulma/css/bulma.css';
 import './styles.scss';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import {status} from './status'
+
 //import { HeaderBar, NavBar, NotFound } from './components';
 import  { NotFound } from './components';
 import  { config } from './Config';
@@ -73,7 +73,7 @@ class App extends Component {
               <Suspense fallback={<div>Loading...</div>}>
                 <Switch>
                 <Redirect from="/" exact to="/status" />
-                <Route path="/status" component={status} />
+                {/* <Route path="/status" component={status} /> */}
                 <Route path="/about" component={About} />
                 <Route exact path="**" component={NotFound} />
                 </Switch>
