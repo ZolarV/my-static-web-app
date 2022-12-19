@@ -3,7 +3,7 @@ import 'bulma/css/bulma.css';
 import './styles.scss';
 import  { config } from './Config';
 import  {PublicClientApplication } from '@azure/msal-browser'
-import  {  TableServiceClient, AzureSASCredential} from "@azure/data-tables";
+import  {  TableServiceClient, AzureSASCredential} from '@azure/data-tables';
 class App extends Component {
   
   constructor(props){
