@@ -3,8 +3,8 @@ import 'bulma/css/bulma.css';
 import './styles.scss';
 import  { config } from './Config';
 import  {PublicClientApplication } from '@azure/msal-browser'
-/* import  {  TableServiceClient, AzureSASCredential} from '@azure/data-tables';
- */
+import  {  TableServiceClient, AzureSASCredential} from '@azure/data-tables';
+
 class App extends Component {
   
   constructor(props){
@@ -48,7 +48,7 @@ class App extends Component {
   logout(){
     this.PublicClientApplication.logoutPopup();
   }
-  /*  async getLatest(){
+    async getLatest(){
    
     var sas = '?sv=2021-06-08&ss=t&srt=sco&sp=rl&se=2023-01-10T06:08:43Z&st=2022-12-18T22:08:43Z&spr=https&sig=wFUjZHLzqG11pxrmp95uf9Niyd49FhuwHGk3ncc1Vcs%3D';
     var serviceClientWithSAS = new TableServiceClient('https://teststoragec2consultants.table.core.windows.net',new AzureSASCredential(sas));
@@ -61,18 +61,18 @@ class App extends Component {
       
     }
     return tables
-} */
+} 
 
 
 
   render() {
     return (
-      <div  style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
-          <div  style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>         
+      <div className='App'>
+          <header  className='header'>         
             {
               this.state.isAuthenticated ? 
               <p> 
-                this get latest table         
+                 <button onClick={()=>this.getLatest()}>Get latest data</button>      
                 <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
                   <table>
                     <thead>
@@ -90,14 +90,14 @@ class App extends Component {
               </p>: 
               <p>
                 <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
-                  Logging in  {this.login()}
+                  <button onClick={()=>this.login()}>Login</button>
                 </div>
                 
                     
                  
               </p>  
             }
-          </div>
+          </header>
         </div>    
     );
   }
