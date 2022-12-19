@@ -67,12 +67,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className='App'>
-          <div className='App-header'>         
+      <div  style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
+          <div  style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>         
             {
               this.state.isAuthenticated ? 
               <p> 
-                this getlatest table         
+                this get latest table         
                 <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
                   <table>
                     <thead>
