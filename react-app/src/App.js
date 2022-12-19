@@ -84,9 +84,7 @@ class App extends Component {
                         </tr>
                     </thead>
                   </table>
-                  <div>
-                    {this.getLatest()} 
-                  </div>
+                  
 
                 </div>
               </p>: 
