@@ -57,7 +57,7 @@ class App extends Component {
     var tables = new Array();
     for await (const table of tablesIter) {
       tables += table.name;
-      console.log(tables[0]);
+      
     }
 }
 
@@ -82,7 +82,9 @@ class App extends Component {
                         </tr>
                     </thead>
                   </table>
-
+                  <div>
+                    ${tables}
+                  </div>
 
                 </div>
               </p>: 
